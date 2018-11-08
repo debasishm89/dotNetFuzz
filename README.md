@@ -24,6 +24,7 @@ Grab **poc.js** file(s) from **crashes/** folder and execute **c:\\>wscript.exe 
 "THE BEER-WARE LICENSE" (Revision 42): 
 Debasish Mandal wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return Debasish Mandal.
 
+Following library is licensed separately : /utils/ (https://github.com/OpenRCE/sulley )
 
 Cheers,
 Debasish
