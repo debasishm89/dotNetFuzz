@@ -26,6 +26,6 @@ Debasish Mandal wrote this file. As long as you retain this notice you can do wh
 
 Following library is licensed separately : /utils/ (https://github.com/OpenRCE/sulley )
 
-Cheers,
+# Cheers,
 Debasish
 https://twitter.com/debasishm89
