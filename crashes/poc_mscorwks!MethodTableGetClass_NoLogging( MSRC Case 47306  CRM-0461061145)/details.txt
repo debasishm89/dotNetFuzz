@@ -1,0 +1,32 @@
+(161c.18d0): Access violation - code c0000005 (first chance)
+First chance exceptions are reported before any exception handling.
+This exception may be expected and handled.
+eax=0020b016 ebx=00000001 ecx=5d444648 edx=07a92ef4 esi=5d444648 edi=0048c8b4
+eip=62cbdefc esp=0048c82c ebp=0048c8dc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010246
+mscorwks!MethodTable::GetClass_NoLogging+0x12:
+62cbdefc 8b401a          mov     eax,dword ptr [eax+1Ah] ds:002b:0020b030=????????
+0:000> kb
+ChildEBP RetAddr  Args to Child              
+0048c828 62cad0b2 5d444648 62cc7e05 62cc7ef5 mscorwks!MethodTable::GetClass_NoLogging+0x12
+0048c830 62cc7e05 62cc7ef5 764da530 00000000 mscorwks!MethodTable::GetCl+0x2d
+0048c834 62cc7ef5 764da530 00000000 07a90010 mscorwks!MethodTable::IsGlobalClass+0x5
+0048c8dc 645e34a3 0048d240 5d444648 00314798 mscorwks!CEEInfo::getClassAttribs+0x100
+0048ced0 645b43b0 07a92be8 77c78cfb 07a92ca4 mscorjit!Compiler::impImportBlockCode+0x40af
+0048cf40 645b4496 07a92be8 00000000 07a90010 mscorjit!Compiler::impImportBlock+0xbf
+0048cf58 645b4538 07a92be8 07a90010 645b4556 mscorjit!Compiler::impImport+0xe2
+0048cf64 645b4556 07a90010 0048d1a4 0048cfc0 mscorjit!Compiler::fgImport+0x20
+0048cf74 645b5584 0048d068 0048d2b0 00107010 mscorjit!Compiler::compCompile+0xc
+0048cfc0 645b572b 003143f8 00000000 0048d1a4 mscorjit!Compiler::compCompile+0x44f
+0048d048 645b5e3f 0048d22c 0048d1a4 0048d068 mscorjit!jitNativeCode+0xef
+0048d06c 62ccb7b0 64607268 0048d22c 0048d1a4 mscorjit!CILJit::compileMethod+0x25
+0048d0d8 62ccb845 0a08db98 0048d22c 0048d1a4 mscorwks!invokeCompileMethodHelper+0x72
+0048d11c 62ccb8b8 0a08db98 0048d22c 0048d1a4 mscorwks!invokeCompileMethod+0x31
+0048d170 62ccb631 0a08db98 0048d22c 0048d1a4 mscorwks!CallCompileMethodWithSEHWrapper+0x5b
+0048d518 62ccb3f3 00314798 0a09cfe0 00107010 mscorwks!UnsafeJitFunction+0x31b
+0048d5bc 62cb0496 0a09cfe0 00000000 764dbbf4 mscorwks!MethodDesc::MakeJitWorker+0x1a8
+0048d618 62cb0657 00000000 764dbb84 0048d8c4 mscorwks!MethodDesc::DoPrestub+0x46a
+0048d668 095ebfde 0048d698 789e823a 765814ad mscorwks!PreStubWorker+0xf3
+WARNING: Frame IP not in any known module. Following frames may be wrong.
+0048d680 62ca1b8c 00000000 09c1ec38 0048d6cc 0x95ebfde
+

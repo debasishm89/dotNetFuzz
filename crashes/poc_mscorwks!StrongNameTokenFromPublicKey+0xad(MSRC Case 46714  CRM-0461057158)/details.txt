@@ -1,0 +1,69 @@
+(220c.1510): Access violation - code c0000005 (first chance)
+First chance exceptions are reported before any exception handling.
+This exception may be expected and handled.
+eax=0052c5e8 ebx=00000000 ecx=5366488c edx=00000000 esi=0c7b0ff8 edi=0052c5ec
+eip=536b5e28 esp=0052c548 ebp=0052c598 iopl=0         nv up ei pl nz na po nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010202
+mscorwks!StrongNameTokenFromPublicKey+0xad:
+536b5e28 8b4608          mov     eax,dword ptr [esi+8] ds:002b:0c7b1000=????????
+0:000> kb
+ChildEBP RetAddr  Args to Child              
+0052c598 536b60ed 0c7b0ff8 00000005 0052c5ec mscorwks!StrongNameTokenFromPublicKey+0xad
+0052c5b4 536b611d 0c7b0ff8 00000005 0052c5ec mscorwks!CAssemblyName::GetPublicKeyTokenFromPKBlob+0x17
+0052c5fc 536b1b7f 0c6ccef0 00000000 0c7b0ff8 mscorwks!CAssemblyName::SetProperty+0xc8
+0052ca6c 53931e32 0ca40fdc 00000000 8b000c3d mscorwks!FusionBind::CreateFusionName+0x2e8
+0052cb04 53b044ee 8b000b2d 00000000 09995f88 mscorwks!PEAssembly::GetFusionAssemblyName+0x6b
+0052cc14 53b04cdb 0ca40f88 0052cd80 00000000 mscorwks!AssemblyNative::GetPostPolicyAssembly+0x25
+0052cdc8 52263e53 00000000 0052cddc 00000000 mscorwks!AssemblyNative::LoadImage+0x56c
+0052cde0 53661b6c 00000000 00000000 0052ce70 mscorlib_ni+0x6b3e53
+0052cdf0 5367854b 0052cec0 00000000 0052ce90 mscorwks!CallDescrWorker+0x33
+0052ce70 536805eb 0052cec0 00000000 0052ce90 mscorwks!CallDescrWorkerWithHandler+0xa3
+0052cfa8 5368061e 516f4abc 0052d0f4 0052d000 mscorwks!MethodDesc::CallDescr+0x19c
+0052cfc4 5368063c 516f4abc 0052d0f4 0052d000 mscorwks!MethodDesc::CallTargetWorker+0x1f
+0052cfdc 537bc47e 0052d000 0052d1ac 5377462f mscorwks!MethodDescCallSite::Call_RetArgSlot+0x1a
+0052d1b8 537bc5e2 516ac9ec 0a2ae878 00000000 mscorwks!InvokeImpl+0x550
+0052d278 51dc58e8 51a84c74 000001c6 0052d294 mscorwks!RuntimeMethodHandle::InvokeMethodFast+0xbd
+0052d2c8 51dc56ef 51a84c74 000001c6 0a2b364c mscorlib_ni+0x2158e8
+0052d300 51dc6b25 00000001 00000000 00000000 mscorlib_ni+0x2156ef
+0052d328 5224fe1c 0052d340 53661b6c 000006c3 mscorlib_ni+0x216b25
+0052d330 53661b6c 000006c3 0052d348 0052d3c0 mscorlib_ni+0x69fe1c
+0052d340 5367854b 0052d410 00000000 0052d3e0 mscorwks!CallDescrWorker+0x33
+0:000> !heap -p -a 0c7b1000
+    address 0c7b1000 found in
+    _DPH_HEAP_ROOT @ 271000
+    in busy allocation (  DPH_HEAP_BLOCK:         UserAddr         UserSize -         VirtAddr         VirtSize)
+                                 c800478:          c7b0ff8                5 -          c7b0000             2000
+    57d18e89 verifier!AVrfDebugPageHeapAllocate+0x00000229
+    77e2103e ntdll!RtlDebugAllocateHeap+0x00000030
+    77ddabe2 ntdll!RtlpAllocateHeap+0x000000c4
+    77d834a1 ntdll!RtlAllocateHeap+0x0000023a
+    536647cc mscorwks!EEHeapAlloc+0x00000142
+    5366484a mscorwks!EEHeapAllocInProcessHeap+0x00000052
+    53664873 mscorwks!operator new[]+0x00000025
+    536b04ce mscorwks!FusionBind::CloneFields+0x0000007e
+    536cabe3 mscorwks!AssemblySpec::InitializeSpec+0x000000bc
+    53931e0f mscorwks!PEAssembly::GetFusionAssemblyName+0x0000002b
+    53b044ee mscorwks!AssemblyNative::GetPostPolicyAssembly+0x00000025
+    53b04cdb mscorwks!AssemblyNative::LoadImage+0x0000056c
+    52263e53 mscorlib_ni+0x006b3e53
+
+0:000> !lmi mscorwks
+Loaded Module Info: [mscorwks] 
+         Module: mscorwks
+   Base Address: 53660000
+     Image Name: C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorwks.dll
+   Machine Type: 332 (I386)
+     Time Stamp: 5b19fd18 Fri Jun 08 09:20:48 2018
+           Size: 5b1000
+       CheckSum: 5b72fa
+Characteristics: 2102  perf
+Debug Data Dirs: Type  Size     VA  Pointer
+             CODEVIEW    25, 5613b0,  5607b0 RSDS - GUID: {F238D36D-4816-4DC8-852C-2B5E5653B07A}
+               Age: 2, Pdb: mscorwks.pdb
+                CLSID     4, 5613ac,  5607ac [Data not mapped]
+     Image Type: FILE     - Image read successfully from debugger.
+                 C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorwks.dll
+    Symbol Type: PDB      - Symbols loaded successfully from symbol server.
+                 d:\symbols\mscorwks.pdb\F238D36D48164DC8852C2B5E5653B07A2\mscorwks.pdb
+    Load Report: private symbols , not source indexed 
+                 d:\symbols\mscorwks.pdb\F238D36D48164DC8852C2B5E5653B07A2\mscorwks.pdb

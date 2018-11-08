@@ -1,0 +1,35 @@
+Stack Trace:
+
+(1550.8bc): Access violation - code c0000005 (first chance)
+First chance exceptions are reported before any exception handling.
+This exception may be expected and handled.
+eax=20043100 ebx=00000000 ecx=6221494e edx=04072d30 esi=6221494e edi=0042c808
+eip=62d9e4ca esp=0042c794 ebp=0042c830 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010246
+mscorwks!CEEInfo::getNewArrHelper+0xda:
+62d9e4ca f70000000400    test    dword ptr [eax],40000h ds:002b:20043100=????????
+0:000> kb
+ChildEBP RetAddr  Args to Child              
+0042c830 614a1405 0042d1a0 62214950 00544790 mscorwks!CEEInfo::getNewArrHelper+0xda
+0042ce30 614843b0 04072be8 7f312b78 04072ca4 mscorjit!Compiler::impImportBlockCode+0x3cd0
+0042cea0 61484496 04072be8 00000000 04070010 mscorjit!Compiler::impImportBlock+0xbf
+0042ceb8 61484538 04072be8 04070010 61484556 mscorjit!Compiler::impImport+0xe2
+0042cec4 61484556 04070010 0042d104 0042cf20 mscorjit!Compiler::fgImport+0x20
+0042ced4 61485584 0042cfc8 0042d210 00107010 mscorjit!Compiler::compCompile+0xc
+0042cf20 6148572b 005443f0 00000000 0042d104 mscorjit!Compiler::compCompile+0x44f
+0042cfa8 61485e3f 0042d18c 0042d104 0042cfc8 mscorjit!jitNativeCode+0xef
+0042cfcc 62d9b750 614d7268 0042d18c 0042d104 mscorjit!CILJit::compileMethod+0x25
+0042d038 62d9b7e5 0c520b98 0042d18c 0042d104 mscorwks!invokeCompileMethodHelper+0x72
+0042d07c 62d9b858 0c520b98 0042d18c 0042d104 mscorwks!invokeCompileMethod+0x31
+0042d0d0 62d9b5d1 0c520b98 0042d18c 0042d104 mscorwks!CallCompileMethodWithSEHWrapper+0x5b
+0042d478 62d9b393 00544790 0a249fe0 00107010 mscorwks!UnsafeJitFunction+0x31b
+0042d51c 62d80436 0a249fe0 00000000 7f4aa2c0 mscorwks!MethodDesc::MakeJitWorker+0x1a8
+0042d578 62d805f7 00000000 7f4aa270 0042d824 mscorwks!MethodDesc::DoPrestub+0x46a
+0042d5c8 096fbfde 0042d5f8 7f3615e3 760514ad mscorwks!PreStubWorker+0xf3
+WARNING: Frame IP not in any known module. Following frames may be wrong.
+0042d5e0 62d71b6c 00000000 09da8c38 0042d62c 0x96fbfde
+0042d610 62d8854b 0042d6e0 00000000 0042d6b0 mscorwks!CallDescrWorker+0x33
+0042d690 62d905eb 0042d6e0 00000000 0042d6b0 mscorwks!CallDescrWorkerWithHandler+0xa3
+0042d7c8 62d9061e 0054c030 0042d9a8 0042d96c mscorwks!MethodDesc::CallDescr+0x19c
+
+ 
