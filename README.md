@@ -10,9 +10,7 @@ Lately I've got a chance to take a look at James Forshaw's **DotNetToJScript**.(
 
 > We will resolve this issue as "won't fix". This OOB read is fixed in recent versions of >NET and an exception is generated that the public key is invalid. The issue reproduces only on **.NET 2.0, which is no longer supported.** 
 
-**MSRC Case 47293 CRM:0461061041**
-**MSRC Case 46897 CRM:0461058267**
-**MSRC Case 47306 CRM:0461061145**
+**MSRC Case 47293 CRM:0461061041, MSRC Case 46897 CRM:0461058267, MSRC Case 47306 CRM:0461061145**
 
 > Microsoft has decided that it will not be fixing this **vulnerability** in the current version and we are closing this case.  At this time, you are able to blog about/discuss this case and/or present your findings publicly about the current version. We'd love to hear if you plan post anything. We can request feedback from our engineering teams about the technical accuracy of the post, and prepare for any possible customer questions. Thank you and we look forward to more submissions from you in the future.
 
