@@ -6,6 +6,24 @@ A quick and dirty .NET "Deserialize_*" fuzzer based on James Forshaw's (@tiranid
 
 Lately I've got a chance to take a look at James Forshaw's **DotNetToJScript**.( https://github.com/tyranid/DotNetToJScript ). DotNetToJScript is a tool to generate a JScript which bootstraps an arbitrary .NET Assembly and class. Since DotNetToJScript deals with  **serialization / de-serialzination** of .NET objects a lot, I decided to write this fuzzer. This fuzzer targets a very tiny component of .NET Framework. Hence the name of this fuzzer may sound bit inappropriate :P , however I couldn't think of any better. 
 
+```python
+...
+...
+var serialized_obj = "AAEAAAD/////AQAAAAAAAAAEAQ....."  // This fuzzer simply mutate this serialized object
+var entry_class = 'TestClass';
+try {
+	setversion();
+	var stm = base64ToStream(serialized_obj);
+	var fmt = new ActiveXObject('System.Runtime.Serialization.Formatters.Binary.BinaryFormatter');
+	var al = new ActiveXObject('System.Collections.ArrayList');
+	var d = fmt.Deserialize_2(stm);
+	al.Add(undefined);
+	var o = d.DynamicInvoke(al.ToArray()).CreateInstance(entry_class);
+} catch (e) {
+    debug(e.message);
+}
+```
+
 After running this fuzzer for few days, it recorded several OOB issues. Few interesting OOBs were reported to MSRC ( **~July'18** ), however Microsoft decided not to fix any of them :( **POC's are being made public after receiving confirmation from MSRC**. Responses from MSRC are listed below:
 
 **MSRC Case 46714 CRM:0461057158**
