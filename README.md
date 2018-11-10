@@ -9,7 +9,7 @@ Lately I've got a chance to take a look at James Forshaw's **DotNetToJScript**.(
 ```python
 ...
 ...
-var serialized_obj = "AAEAAAD/////AQAAAAAAAAAEAQ....."  // This fuzzer simply mutate this serialized object
+var serialized_obj = "AAEAAAD/////AQAAAAAAAAAEAQ....."  // This fuzzer simply mutates this serialized object, passed to Deserialize_*(x) function.
 var entry_class = 'TestClass';
 try {
 	setversion();
